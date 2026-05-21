@@ -1,6 +1,6 @@
 # Kaio Felipe Homem
 
-CS student at [IFSC](https://www.ifsc.edu.br) - Florianopolis, SC  
+CS student at [IFSC](https://www.ifsc.edu.br) - Lages, SC
 Open to internships in software development, web, or IT support.
 
 ---
