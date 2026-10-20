@@ -50,7 +50,7 @@ O portfólio completo, com os trabalhos, a trajetória e o contato, está no ar:
 
 <a href="https://kaiohomem.github.io"><img src="assets/cta-portfolio.png" width="290" alt="Dar play no portfólio: kaiohomem.github.io"></a>
 
-[LinkedIn](https://www.linkedin.com/in/kaio-homem-bb118335b/) &nbsp;·&nbsp; [kaiokateto@gmail.com](mailto:kaiokateto@gmail.com) &nbsp;·&nbsp; [Código do portfólio](https://github.com/KaioHomem/KaioHomem.github.io)
+[LinkedIn](https://www.linkedin.com/in/kaio-homem/) &nbsp;·&nbsp; [kaiokateto@gmail.com](mailto:kaiokateto@gmail.com) &nbsp;·&nbsp; [Código do portfólio](https://github.com/KaioHomem/KaioHomem.github.io)
 
 <br>
 
