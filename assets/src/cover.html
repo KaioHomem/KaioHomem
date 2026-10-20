@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=block">
+<style>
+  :root { --ink-950: #070708; --ink-900: #0a0a0b; --ink-800: #121214; --ink-700: #1a1a1d;
+    --paper: #eceef0; --paper-dim: #b9bcc2; --muted: #8d9097; --muted-2: #5f6269; --signal: #ff5a1f;
+    --line: rgb(236 238 240 / 0.1); --line-strong: rgb(236 238 240 / 0.22); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; background: var(--ink-900); }
+  body { font-family: "Archivo", sans-serif; color: var(--paper); -webkit-font-smoothing: antialiased; position: relative; }
+  .mono { font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+  .grid { position: absolute; inset: 0; opacity: .35;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 80px 80px; background-position: -1px 39px; }
+  .glow { position: absolute; inset: 0; background: radial-gradient(ellipse 50% 70% at 78% 48%, rgb(255 90 31 / .08), transparent 70%), radial-gradient(ellipse at center, transparent 55%, rgb(0 0 0 / .5)); }
+  .top { position: absolute; left: 0; right: 0; top: 0; height: 44px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; border-bottom: 1px solid var(--line); background: rgb(7 7 8 / .7); color: var(--muted); }
+  .top .l { display: flex; gap: 10px; align-items: center; color: var(--paper-dim); }
+  .rec { width: 8px; height: 8px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 10px var(--signal); }
+  .tc { color: var(--signal); font-weight: 700; }
+  .copy { position: absolute; left: 64px; top: 104px; width: 520px; }
+  .label { color: var(--muted); display: flex; gap: 10px; }
+  .label b { color: var(--signal); font-weight: 500; }
+  h1 { margin-top: 22px; font-weight: 800; font-variation-settings: "wdth" 125; font-size: var(--fs, 74px); line-height: .9; letter-spacing: -0.035em; text-transform: uppercase; }
+  h1 .dot { color: var(--signal); }
+  .kind { margin-top: 22px; font-size: 25px; font-weight: 500; font-variation-settings: "wdth" 110; line-height: 1.25; }
+  .kind span { color: var(--paper-dim); font-weight: 400; display: block; }
+  .tags { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags span { border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 12px; color: var(--paper-dim); background: rgb(18 18 20 / .7); }
+  .viewer { position: absolute; right: 56px; top: 92px; width: 590px; height: 392px; border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; background: var(--ink-800);
+    box-shadow: 0 30px 80px rgb(0 0 0 / .6), 0 0 0 6px rgb(236 238 240 / .03); }
+  .viewer .vb { height: 30px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border-bottom: 1px solid var(--line); background: var(--ink-950); color: var(--muted-2); font-size: 11px; }
+  .viewer .vb i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--muted-2); margin-right: 5px; }
+  .viewer .vb i:first-child { background: var(--signal); }
+  .viewer .body { position: absolute; inset: 30px 0 0 0; }
+  .viewer img.shot { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .viewer img.mono3d { position: absolute; left: 50%; top: 50%; width: 440px; transform: translate(-50%, -52%); }
+  .term { padding: 20px 22px; font-family: "JetBrains Mono", monospace; font-size: 15px; line-height: 1.75; color: var(--paper-dim); white-space: pre; }
+  .term .p { color: var(--signal); } .term .c { color: var(--muted-2); } .term .w { color: var(--paper); } .term .k { color: #ffb08f; }
+  .schema { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 70px; }
+  .tbl { width: 210px; border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; background: var(--ink-900); font-family: "JetBrains Mono", monospace; font-size: 14px; }
+  .tbl h3 { font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; padding: 10px 14px; background: var(--ink-950); border-bottom: 1px solid var(--line); color: var(--paper); display: flex; justify-content: space-between; }
+  .tbl h3 small { color: var(--signal); font-size: 11px; }
+  .tbl div { padding: 7px 14px; color: var(--paper-dim); display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); }
+  .tbl div:last-child { border-bottom: 0; }
+  .tbl div em { font-style: normal; color: var(--muted-2); }
+  .tbl div.pk { color: var(--paper); } .tbl div.fk { color: #ffb08f; }
+  .rel { position: absolute; left: 50%; top: 50%; width: 70px; height: 1px; background: var(--signal); transform: translate(-50%, 0); }
+  .rel b, .rel s { position: absolute; top: -20px; font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--signal); text-decoration: none; font-weight: 500; }
+  .rel b { left: 2px; } .rel s { right: 2px; }
+  .tl { position: absolute; left: 0; right: 0; bottom: 0; height: 104px; border-top: 1px solid var(--line); background: var(--ink-950); }
+  .ruler { position: absolute; left: 220px; right: 32px; top: 0; height: 28px; border-bottom: 1px solid var(--line); }
+  .tick { position: absolute; bottom: 0; width: 1px; background: var(--line-strong); }
+  .tick span { position: absolute; bottom: 9px; left: 4px; font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--muted-2); }
+  .tlab { position: absolute; left: 32px; color: var(--muted); display: flex; gap: 8px; align-items: center; font-size: 12px; }
+  .tlab i { width: 8px; height: 8px; border-radius: 2px; }
+  .lane { position: absolute; left: 220px; right: 32px; height: 22px; }
+  .bar { position: absolute; top: 5px; height: 12px; border-radius: 3px; }
+  .kf { position: absolute; top: 5px; width: 11px; height: 11px; margin-left: -5.5px; transform: rotate(45deg); border: 1.5px solid var(--paper-dim); background: var(--ink-950); }
+  .kf.on { background: var(--signal); border-color: var(--signal); box-shadow: 0 0 10px rgb(255 90 31 / .7); }
+  .ph { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--signal); }
+  .ph::before { content: ""; position: absolute; top: 0; left: -6px; width: 13px; height: 14px; background: var(--signal); clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); }
+</style>
+</head>
+<body>
+<div class="grid"></div><div class="glow"></div>
+<div class="top mono"><div class="l"><span class="rec"></span><span id="file"></span></div><div id="mid"></div><div class="tc" id="tc"></div></div>
+<div class="copy">
+  <div class="label mono" id="label"></div>
+  <h1 id="title"></h1>
+  <p class="kind" id="kind"></p>
+  <div class="tags mono" id="tags"></div>
+</div>
+<div class="viewer"><div class="vb mono"><span><i></i><i></i><i></i></span><span id="vtitle"></span><span>100% · Full</span></div><div class="body" id="vbody"></div></div>
+<div class="tl" id="tl">
+  <div class="ruler" id="ruler"></div>
+  <div class="tlab mono" style="top:40px"><i style="background:var(--signal)"></i><span id="l1"></span></div>
+  <div class="tlab mono" style="top:70px"><i style="background:var(--muted-2)"></i><span id="l2"></span></div>
+  <div class="lane" style="top:36px" id="lane1"></div><div class="lane" style="top:66px" id="lane2"></div>
+  <div class="ph" id="ph"></div>
+</div>
+<script>
+const COVERS = {
+  guia: {
+    file: "GUIA_DA_SERRA.comp", mid: "HTML · CSS · JS puro", tc: "00:00:03:08",
+    label: ["COMP 03", "Site acessível", "IFSC · 2026"], title: "Guia da<br>Serra", fs: "80px",
+    kind: "Guia turístico de Lages e da Serra Catarinense.<span>Busca, filtros, favoritos e tema escuro, sem framework.</span>",
+    tags: ["HTML5", "CSS3", "ES Modules", "ARIA", "WCAG"],
+    vtitle: "kaiohomem.github.io/guia-da-serra", view: `<img class="shot" src="img/guia-da-serra.webp">`,
+    l1: "Site · responsivo", l2: "A11y · WCAG",
+  },
+  chat: {
+    file: "CHATDECONVERSA.comp", mid: "Python · sockets", tc: "00:00:04:12",
+    label: ["COMP 04", "Redes · Python", "IFSC · 2026"], title: "Chat De<br>Conversa", fs: "60px",
+    kind: "Chat multi-protocolo em Python.<span>Multicast UDP, transferência de arquivos e IoT, com interface em Tkinter.</span>",
+    tags: ["Python", "Sockets", "UDP multicast", "Threads", "Tkinter"],
+    vtitle: "MainChat.py", l1: "Rede · multicast", l2: "Módulos · ftp · iot",
+    view: `<div class="term"><span class="p">$</span> <span class="w">python MainChat.py</span>
+<span class="c"># conecta no grupo multicast</span>
+<span class="k">group</span>  239.255.0.1   <span class="k">port</span>  5000
+<span class="c">────────────────────────────────────</span>
+ChatDeConversa/
+├── <span class="w">MainChat.py</span>      <span class="c"># entrada · Tkinter</span>
+├── chat/ ChatApp.py
+├── ftp/  FileServer.py · FileClient.py
+└── iot/  IoTServer.py  · IoTClient.py
+<span class="p">◆</span> <span class="w">[22:41] kaio:</span> bora testar o multicast?</div>`,
+  },
+  crud: {
+    file: "CRUD_HIBERNATE.comp", mid: "Java · JPA · MySQL", tc: "00:00:02:00",
+    label: ["COMP 05", "Desktop · Java", "IFSC · 2026"], title: "Crud<br>Hibernate", fs: "62px",
+    kind: "Cadastro de categorias e produtos (1:N).<span>Swing na interface, Hibernate/JPA na persistência, MySQL no banco.</span>",
+    tags: ["Java", "Swing", "Hibernate", "JPA", "MySQL", "Maven"],
+    vtitle: "persistence.xml · schema", l1: "Entidades · JPA", l2: "Interface · Swing",
+    view: `<div class="schema">
+      <div class="tbl"><h3>categorias<small>@Entity</small></h3><div class="pk">id <em>Integer · PK</em></div><div>nome <em>String</em></div><div>descricao <em>String</em></div></div>
+      <div class="tbl"><h3>produtos<small>@Entity</small></h3><div class="pk">id <em>Integer · PK</em></div><div>nome <em>String</em></div><div>descricao <em>String</em></div><div>quantidade <em>Integer</em></div><div>preco <em>Double</em></div><div class="fk">categoria <em>@ManyToOne</em></div></div>
+    </div><div class="rel"><b>1</b><s>N</s></div>`,
+  },
+  site: {
+    file: "KAIO_FELIPE.comp", mid: "Next.js · GSAP · Blender", tc: "00:00:01:16",
+    label: ["COMP 01", "Portfólio", "2026"], title: "kaiohomem<br>.github.io", fs: "54px",
+    kind: "Portfólio de Kaio Felipe.<span>Dev, motion e CGI: Next.js, GSAP e um monograma renderizado no Blender.</span>",
+    tags: ["Next.js", "TypeScript", "GSAP", "Tailwind", "Blender"],
+    vtitle: "KF_monogram.blend · frame 040", l1: "KF_monogram", l2: "Site · Next.js",
+    view: `<img class="mono3d" src="cgi/kf_040.webp">`,
+  },
+};
+const c = COVERS[new URLSearchParams(location.search).get("id")];
+const $ = (id) => document.getElementById(id);
+$("file").textContent = c.file; $("mid").textContent = c.mid; $("tc").textContent = c.tc;
+$("label").innerHTML = `<b>${c.label[0]}</b>` + c.label.slice(1).map((x) => `<span>·</span><span>${x}</span>`).join("");
+$("title").innerHTML = c.title.replace(/<br>([^<]*)$/, "<br>$1") + `<span class="dot">.</span>`;
+$("title").style.setProperty("--fs", c.fs);
+$("kind").innerHTML = c.kind; $("tags").innerHTML = c.tags.map((t) => `<span>${t}</span>`).join("");
+$("vtitle").textContent = c.vtitle; $("vbody").innerHTML = c.view; $("l1").textContent = c.l1; $("l2").textContent = c.l2;
+const W = 1280 - 220 - 32, D = 6, x = (t) => (t / D) * W;
+for (let s = 0; s <= D; s += 0.25) { const d = document.createElement("div"); d.className = "tick"; const m = Math.abs(s - Math.round(s)) < 1e-6;
+  d.style.left = x(s) + "px"; d.style.height = m ? "12px" : "5px"; if (m) d.innerHTML = `<span>${String(s).padStart(2, "0")}s</span>`; $("ruler").appendChild(d); }
+const bar = (l, a, b, col) => { const d = document.createElement("div"); d.className = "bar"; d.style.left = x(a) + "px"; d.style.width = x(b) - x(a) + "px"; d.style.background = col; $(l).appendChild(d); };
+bar("lane1", 0, 5.6, "rgb(255 90 31 / .16)"); bar("lane2", 0.4, 6, "rgb(236 238 240 / .06)");
+const [ss, ff] = c.tc.split(":").slice(2).map(Number); const now = ss + ff / 24;
+const kf = (l, t) => { const d = document.createElement("div"); d.className = "kf" + (Math.abs(t - now) < 0.01 ? " on" : ""); d.style.left = x(t) + "px"; $(l).appendChild(d); };
+[0, now, 5.6].forEach((t) => kf("lane1", t)); [0.4, 1.4, 4.6].forEach((t) => kf("lane2", t));
+$("ph").style.left = 220 + x(now) + "px";
+window.ready = Promise.all([document.fonts.ready, ...[...document.images].map((im) => im.complete ? 1 : new Promise((r) => (im.onload = im.onerror = r)))]);
+</script>
+</body>
+</html>
