@@ -7,7 +7,7 @@
   :root {
     --ink-950: #070708; --ink-900: #0a0a0b; --ink-800: #121214; --ink-700: #1a1a1d;
     --paper: #eceef0; --paper-dim: #b9bcc2; --muted: #8d9097; --muted-2: #5f6269;
-    --signal: #ff5a1f; --line: rgb(236 238 240 / 0.1); --line-strong: rgb(236 238 240 / 0.22);
+    --signal: #8b5cf6; --line: rgb(236 238 240 / 0.1); --line-strong: rgb(236 238 240 / 0.22);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1280px; height: 440px; overflow: hidden; background: var(--ink-900); }
@@ -18,7 +18,7 @@
   .grid { position: absolute; inset: 0;
     background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
     background-size: 80px 80px; background-position: -1px 39px; opacity: .35; }
-  .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 76% 45%, rgb(255 90 31 / 0.07), transparent 70%), radial-gradient(ellipse at center, transparent 55%, rgb(0 0 0 / .55)); }
+  .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 76% 45%, rgb(139 92 246 / 0.07), transparent 70%), radial-gradient(ellipse at center, transparent 55%, rgb(0 0 0 / .55)); }
   .corner { position: absolute; width: 18px; height: 18px; border-color: var(--line-strong); border-style: solid; border-width: 0; }
   .c1 { left: 24px; top: 52px; border-left-width: 1px; border-top-width: 1px; }
   .c2 { right: 24px; top: 52px; border-right-width: 1px; border-top-width: 1px; }
@@ -63,7 +63,7 @@
   .bar { position: absolute; top: 5px; height: 12px; border-radius: 3px; }
   .kf { position: absolute; top: 5px; width: 11px; height: 11px; margin-left: -5.5px; transform: rotate(45deg);
     border: 1.5px solid var(--paper-dim); background: var(--ink-950); }
-  .kf.on { background: var(--signal); border-color: var(--signal); box-shadow: 0 0 10px rgb(255 90 31 / .7); }
+  .kf.on { background: var(--signal); border-color: var(--signal); box-shadow: 0 0 10px rgb(139 92 246 / .7); }
   .ph { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--signal); }
   .ph::before { content: ""; position: absolute; top: 0; left: -6px; width: 13px; height: 14px; background: var(--signal);
     clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); }
@@ -122,7 +122,7 @@
   const lane1 = document.getElementById("lane1"), lane2 = document.getElementById("lane2");
   const bar = (lane, a, b, color) => { const d = document.createElement("div"); d.className = "bar";
     d.style.left = xOf(a) + "px"; d.style.width = (xOf(b) - xOf(a)) + "px"; d.style.background = color; lane.appendChild(d); };
-  bar(lane1, 0, T_OUT, "rgb(255 90 31 / .16)");
+  bar(lane1, 0, T_OUT, "rgb(139 92 246 / .16)");
   bar(lane2, 0, DUR, "rgb(236 238 240 / .06)");
   const kfEls = [];
   const kf = (lane, t) => { const d = document.createElement("div"); d.className = "kf"; d.style.left = xOf(t) + "px"; lane.appendChild(d); kfEls.push([d, t]); };

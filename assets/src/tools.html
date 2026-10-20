@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=block">
 <style>
   :root { --ink-950: #070708; --ink-900: #0a0a0b; --ink-800: #121214; --ink-700: #1a1a1d;
-    --paper: #eceef0; --paper-dim: #b9bcc2; --muted: #8d9097; --muted-2: #5f6269; --signal: #ff5a1f;
+    --paper: #eceef0; --paper-dim: #b9bcc2; --muted: #8d9097; --muted-2: #5f6269; --signal: #8b5cf6;
     --line: rgb(236 238 240 / 0.1); --line-strong: rgb(236 238 240 / 0.22); }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1280px; background: transparent; }
@@ -18,7 +18,11 @@
   .bar .l b { color: var(--signal); font-weight: 500; }
   .search { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); border-radius: 4px; padding: 4px 10px; color: var(--muted-2); min-width: 220px; }
   .search i { width: 9px; height: 9px; border: 1.5px solid var(--muted); border-radius: 50%; position: relative; }
-  .cols { display: grid; grid-template-columns: repeat(5, 1fr); }
+  .cols { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .ai { border-top: 1px solid var(--line); padding: 18px 18px 22px; }
+  .ai .grid5 { display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 26px; }
+  .ai .it:nth-child(odd) { background: none; }
+  .ai .it { background: rgb(236 238 240 / .025); margin: 0 0 6px; }
   .col { padding: 18px 18px 22px; border-right: 1px solid var(--line); }
   .col:last-child { border-right: 0; }
   .g { display: flex; align-items: center; gap: 8px; color: var(--paper); font-weight: 700; font-size: 15px; font-variation-settings: "wdth" 115; margin-bottom: 12px; }
@@ -28,7 +32,7 @@
   .it:nth-child(odd) { background: rgb(236 238 240 / .025); }
   .ic { width: 20px; height: 20px; flex: none; background: var(--paper); -webkit-mask: var(--u) center / contain no-repeat; mask: var(--u) center / contain no-repeat; }
   .tx { width: 20px; height: 20px; flex: none; display: grid; place-items: center; border: 1.5px solid var(--paper); border-radius: 4px;
-    font-family: "JetBrains Mono", monospace; font-size: 9px; font-weight: 700; color: var(--paper); }
+    font-family: "JetBrains Mono", monospace; font-size: 7.5px; letter-spacing: -0.02em; font-weight: 700; color: var(--paper); }
   .foot { height: 34px; display: flex; align-items: center; gap: 18px; padding: 0 20px; border-top: 1px solid var(--line); background: var(--ink-950); color: var(--muted-2); }
   .foot span b { color: var(--signal); font-weight: 500; }
 </style>
@@ -40,6 +44,7 @@
     <div class="search"><i></i>Tools I use</div>
   </div>
   <div class="cols" id="cols"></div>
+  <div class="ai" id="ai"></div>
   <div class="foot mono"><span><b>◆</b> from script to render</span><span>·</span><span>code, interface, 3D and automation in one pipeline</span></div>
 </div>
 <script>
@@ -49,9 +54,11 @@
     ["Languages", [["Java", DI("java/java-plain")], ["Python", SI("python")], ["JavaScript", SI("javascript")], ["TypeScript", SI("typescript")], ["HTML", SI("html5")], ["CSS", SI("css3")], ["SQL · MySQL", SI("mysql")]]],
     ["Web & apps", [["React", SI("react")], ["Next.js", SI("nextdotjs")], ["Node.js", SI("nodedotjs")], ["Tailwind", SI("tailwindcss")], ["Bootstrap", SI("bootstrap")], ["GSAP", SI("greensock")], ["Vercel", SI("vercel")]]],
     ["Motion & 3D", [["Blender", SI("blender")], ["Three.js", SI("threedotjs")], ["HyperFrames", "HF"], ["ffmpeg", SI("ffmpeg")], ["Figma", SI("figma")]]],
-    ["Tools", [["Git", SI("git")], ["GitHub", SI("github")], ["VS Code", DI("vscode/vscode-plain")], ["IntelliJ IDEA", SI("intellijidea")], ["Docker", SI("docker")]]],
-    ["AI & automation", [["Claude Code", SI("claude")], ["GitHub Actions", SI("githubactions")], ["Playwright", DI("playwright/playwright-plain")], ["Ollama · local LLM", SI("ollama")], ["GitHub Copilot", SI("githubcopilot")]]],
+    ["Tools", [["Git", SI("git")], ["GitHub", SI("github")], ["VS Code", DI("vscode/vscode-plain")], ["IntelliJ IDEA", SI("intellijidea")], ["Docker", SI("docker")], ["GitHub Actions", SI("githubactions")], ["Playwright", DI("playwright/playwright-plain")]]],
   ];
+  const ai = ["AI & automation", [["Claude Code", SI("claude")], ["OpenAI Codex", SI("openai")], ["Cursor", "CU"], ["GitHub Copilot", SI("githubcopilot")], ["Gemini CLI", SI("googlegemini")],
+    ["Antigravity", "AG"], ["OpenCode", "OC"], ["Kimi Code", "KI"], ["Ollama", SI("ollama")], ["LM Studio", "LM"],
+    ["MCP servers", "MCP"], ["AI agents", "AGT"], ["ElevenLabs", SI("elevenlabs")], ["Higgsfield", "HG"], ["Remotion", "RM"]]];
   const cols = document.getElementById("cols");
   for (const [name, items] of groups) {
     const c = document.createElement("div"); c.className = "col";
@@ -59,6 +66,9 @@
       items.map(([n, u]) => `<div class="it">${u.startsWith("http") ? `<span class="ic" style="--u:url('${u}')"></span>` : `<span class="tx">${u}</span>`}${n}</div>`).join("");
     cols.appendChild(c);
   }
+  const tile = ([n, u]) => `<div class="it">${u.startsWith("http") ? `<span class="ic" style="--u:url('${u}')"></span>` : `<span class="tx">${u}</span>`}${n}</div>`;
+  document.getElementById("ai").innerHTML = `<div class="g">${ai[0]}<small>${String(ai[1].length).padStart(2, "0")}</small></div><div class="grid5">${ai[1].map(tile).join("")}</div>`;
+  groups.push(ai);
   const urls = groups.flatMap(([, i]) => i.map(([, u]) => u)).filter((u) => u.startsWith("http"));
   window.ready = Promise.all([document.fonts.ready, ...urls.map((u) => new Promise((r) => { const im = new Image(); im.onload = im.onerror = r; im.src = u; }))])
     .then(() => new Promise((r) => setTimeout(r, 300)));

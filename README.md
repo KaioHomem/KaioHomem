@@ -1,7 +1,13 @@
+<div align="center">
+
+**English** · [Português (Brasil)](README.pt-BR.md)
+
+</div>
+
 <a href="https://kaiohomem.github.io">
   <picture>
     <source media="(prefers-reduced-motion: reduce)" srcset="assets/banner-still.png">
-    <img src="assets/banner.webp" width="100%" alt="Kaio Felipe. Dev, motion and CGI. Code by day, Blender by night. Websites, web and mobile apps, tools, digital products and 3D video. A chrome KF monogram rendered in Blender, over an editing timeline with keyframes and an orange playhead.">
+    <img src="assets/banner.webp" width="100%" alt="Kaio Felipe. Dev, motion and CGI. Code by day, Blender by night. Websites, web and mobile apps, tools, digital products and 3D video. A chrome KF monogram rendered in Blender, over an editing timeline with keyframes and a violet playhead.">
   </picture>
 </a>
 
@@ -11,11 +17,9 @@
 
 I'm Kaio, a 19-year-old **Computer Science student at IFSC** (Federal Institute of Santa Catarina) in Brazil. I build things that actually work, from the first line of code to the final frame: code by day, Blender by night.
 
-In practice, that means **websites and landing pages**, **web and mobile apps**, **tools and automations**, **digital products**, and **motion and 3D videos**. I like taking an idea all the way to production, with a polished interface, tests and a real deployment.
+In practice, that means **websites and landing pages**, **web and mobile apps**, **tools and automations**, **AI agents and workflows**, **digital products**, and **motion and 3D videos**. I like taking an idea all the way to production, with a polished interface, tests and a real deployment.
 
 I speak **English at C1 level** and I'm learning German. I'm looking for an **internship or my first job** in software development, motion design, or both.
-
-<sub><i>PT · Estudante de Ciência da Computação no IFSC. Faço sites, apps web e mobile, ferramentas, produtos digitais e vídeos com motion e 3D. Aberto a estágio e primeiro emprego.</i></sub>
 
 <br>
 
@@ -38,7 +42,7 @@ I speak **English at C1 level** and I'm learning German. I'm looking for an **in
 
 ## Effects panel
 
-<img src="assets/tools.png" width="100%" alt="Tools I use. Languages: Java, Python, JavaScript, TypeScript, HTML, CSS, SQL and MySQL. Web and apps: React, Next.js, Node.js, Tailwind, Bootstrap, GSAP and Vercel. Motion and 3D: Blender, Three.js, HyperFrames, ffmpeg and Figma. Tools: Git, GitHub, VS Code, IntelliJ IDEA and Docker. AI and automation: Claude Code, GitHub Actions, Playwright, Ollama and GitHub Copilot.">
+<img src="assets/tools.png" width="100%" alt="Tools I use. Languages: Java, Python, JavaScript, TypeScript, HTML, CSS, SQL and MySQL. Web and apps: React, Next.js, Node.js, Tailwind, Bootstrap, GSAP and Vercel. Motion and 3D: Blender, Three.js, HyperFrames, ffmpeg and Figma. Tools: Git, GitHub, VS Code, IntelliJ IDEA, Docker, GitHub Actions and Playwright. AI and automation: Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity, OpenCode, Kimi Code, Ollama, LM Studio, MCP servers, AI agents, ElevenLabs, Higgsfield and Remotion.">
 
 <br>
 

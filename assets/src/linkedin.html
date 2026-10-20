@@ -5,14 +5,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=block">
 <style>
   :root { --ink-950: #070708; --ink-900: #0a0a0b; --ink-800: #121214; --paper: #eceef0; --paper-dim: #b9bcc2; --muted: #8d9097; --muted-2: #5f6269;
-    --signal: #ff5a1f; --line: rgb(236 238 240 / 0.1); --line-strong: rgb(236 238 240 / 0.22); }
+    --signal: #8b5cf6; --line: rgb(236 238 240 / 0.1); --line-strong: rgb(236 238 240 / 0.22); }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1584px; height: 396px; overflow: hidden; background: var(--ink-900); }
   body { font-family: "Archivo", sans-serif; color: var(--paper); -webkit-font-smoothing: antialiased; position: relative; }
   .mono { font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
   .grid { position: absolute; inset: 0; opacity: .35; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
     background-size: 66px 66px; background-position: -1px 41px; }
-  .glow { position: absolute; inset: 0; background: radial-gradient(ellipse 30% 75% at 84% 48%, rgb(255 90 31 / .09), transparent 70%), radial-gradient(ellipse at 60% 50%, transparent 55%, rgb(0 0 0 / .5)); }
+  .glow { position: absolute; inset: 0; background: radial-gradient(ellipse 30% 75% at 84% 48%, rgb(139 92 246 / .09), transparent 70%), radial-gradient(ellipse at 60% 50%, transparent 55%, rgb(0 0 0 / .5)); }
   .top { position: absolute; left: 0; right: 0; top: 0; height: 42px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px;
     border-bottom: 1px solid var(--line); background: rgb(7 7 8 / .7); color: var(--muted); }
   .top .l { display: flex; gap: 10px; align-items: center; color: var(--paper-dim); }
@@ -36,9 +36,9 @@
   .ruler { position: absolute; left: 30px; right: 28px; top: 0; height: 20px; border-bottom: 1px solid var(--line); }
   .tick { position: absolute; bottom: 0; width: 1px; background: var(--line-strong); }
   .lane { position: absolute; left: 30px; right: 28px; top: 26px; height: 18px; }
-  .bar { position: absolute; top: 4px; height: 10px; border-radius: 3px; background: rgb(255 90 31 / .16); }
+  .bar { position: absolute; top: 4px; height: 10px; border-radius: 3px; background: rgb(139 92 246 / .16); }
   .kf { position: absolute; top: 3px; width: 11px; height: 11px; margin-left: -5.5px; transform: rotate(45deg); border: 1.5px solid var(--paper-dim); background: var(--ink-950); }
-  .kf.on { background: var(--signal); border-color: var(--signal); box-shadow: 0 0 10px rgb(255 90 31 / .7); }
+  .kf.on { background: var(--signal); border-color: var(--signal); box-shadow: 0 0 10px rgb(139 92 246 / .7); }
   .ph { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--signal); }
   .ph::before { content: ""; position: absolute; top: 0; left: -6px; width: 13px; height: 12px; background: var(--signal); clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); }
 </style>
