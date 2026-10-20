@@ -33,13 +33,15 @@
   .tc { color: var(--signal); font-weight: 700; font-size: 13px; letter-spacing: .08em; }
 
   /* copy */
-  .copy { position: absolute; left: 56px; top: 74px; }
+  .copy { position: absolute; left: 56px; top: 64px; }
   .label { color: var(--muted); display: flex; gap: 10px; align-items: center; }
   .label b { color: var(--signal); font-weight: 500; }
-  h1 { font-weight: 800; font-variation-settings: "wdth" 125; font-size: 100px; line-height: .86; letter-spacing: -0.035em; margin-top: 18px; text-transform: uppercase; }
+  h1 { font-weight: 800; font-variation-settings: "wdth" 125; font-size: 90px; line-height: .86; letter-spacing: -0.035em; margin-top: 16px; text-transform: uppercase; }
   h1 .dot { color: var(--signal); }
-  .lead { margin-top: 18px; font-size: 26px; font-weight: 500; font-variation-settings: "wdth" 110; color: var(--paper); letter-spacing: -0.01em; }
+  .lead { margin-top: 16px; font-size: 25px; font-weight: 500; font-variation-settings: "wdth" 110; color: var(--paper); letter-spacing: -0.01em; }
   .lead span { color: var(--paper-dim); font-weight: 400; }
+  .what { margin-top: 12px; color: var(--paper-dim); display: flex; gap: 10px; align-items: center; }
+  .what i { width: 6px; height: 6px; background: var(--signal); transform: rotate(45deg); display: inline-block; }
   .avail { display: inline-flex; gap: 9px; align-items: center; color: var(--paper-dim); }
   .avail i { width: 7px; height: 7px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 8px var(--signal); }
   .status { margin-top: 16px; display: inline-flex; gap: 10px; align-items: center; color: var(--paper-dim);
@@ -79,9 +81,10 @@
   </div>
 
   <div class="copy">
-    <div class="label mono"><b>COMP 01</b><span>Portfólio · 2026</span><span>·</span><span>Lages, SC</span></div>
+    <div class="label mono"><b>COMP 01</b><span>Portfólio · 2026</span><span>·</span><span>Brasil</span></div>
     <h1>Kaio<br>Felipe<span class="dot">.</span></h1>
     <p class="lead">Dev, motion e CGI. <span>Código de dia, Blender de noite.</span></p>
+    <div class="what mono">Sites<i></i>Apps web &amp; mobile<i></i>Ferramentas<i></i>Produtos digitais<i></i>Vídeo 3D</div>
   </div>
 
   <canvas id="mono" width="800" height="800"></canvas>

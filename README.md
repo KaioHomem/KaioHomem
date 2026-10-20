@@ -1,7 +1,7 @@
 <a href="https://kaiohomem.github.io">
   <picture>
     <source media="(prefers-reduced-motion: reduce)" srcset="assets/banner-still.png">
-    <img src="assets/banner.webp" width="100%" alt="Kaio Felipe. Dev, motion e CGI. Código de dia, Blender de noite. Monograma KF em cromo renderizado no Blender, sobre uma timeline de edição com keyframes e playhead laranja.">
+    <img src="assets/banner.webp" width="100%" alt="Kaio Felipe. Dev, motion e CGI. Código de dia, Blender de noite. Sites, apps web e mobile, ferramentas, produtos digitais e vídeo 3D. Monograma KF em cromo renderizado no Blender, sobre uma timeline de edição com keyframes e playhead laranja.">
   </picture>
 </a>
 
@@ -9,11 +9,13 @@
 
 ## Sobre
 
-Eu sou o Kaio, tenho 19 anos e curso **Ciências da Computação no IFSC**, em Lages, SC. Construo sites, ferramentas e vídeos que funcionam de verdade, e capricho em cada frame: código de dia, Blender de noite.
+Eu sou o Kaio, tenho 19 anos e curso **Ciências da Computação no IFSC**, no Brasil. Construo coisas que funcionam de verdade, do código ao último frame: código de dia, Blender de noite.
+
+Na prática, isso vira **sites e landing pages**, **apps web e mobile**, **ferramentas e automações**, **produtos digitais** e **vídeos com motion e 3D**. Gosto de pegar uma ideia e levar até o ar, com interface caprichada, testes e deploy.
 
 Falo **inglês em nível C1** e estou aprendendo alemão. Procuro **estágio ou primeiro emprego** em desenvolvimento, motion ou as duas coisas juntas.
 
-<sub><i>EN · Computer Science student at IFSC (Brazil). I build websites, tools and videos, with Blender for the 3D. English C1, open to internships and a first job.</i></sub>
+<sub><i>EN · Computer Science student at IFSC, Brazil. I build websites, web and mobile apps, tools, digital products and 3D motion videos, from the first line of code to the final render. English C1, open to internships and a first job.</i></sub>
 
 <br>
 
@@ -36,10 +38,7 @@ Falo **inglês em nível C1** e estou aprendendo alemão. Procuro **estágio ou 
 
 ## Painel de efeitos
 
-**Linguagens** &nbsp; `Java` `Python` `JavaScript` `TypeScript` `HTML` `CSS` `SQL`<br>
-**Web** &nbsp; `React` `Next.js` `Node.js` `GSAP` `Tailwind`<br>
-**Motion & 3D** &nbsp; `Blender` `HyperFrames` `ffmpeg` `Three.js`<br>
-**Ferramentas** &nbsp; `Git` `GitHub Actions` `Playwright` `MySQL`
+<img src="assets/tools.png" width="100%" alt="Ferramentas que eu uso. Linguagens: Java, Python, JavaScript, TypeScript, HTML, CSS, SQL e MySQL. Web e apps: React, Next.js, Node.js, Tailwind, Bootstrap, GSAP e Vercel. Motion e 3D: Blender, Three.js, HyperFrames, ffmpeg e Figma. Ferramentas: Git, GitHub, VS Code, IntelliJ IDEA e Docker. IA e automação: Claude Code, GitHub Actions, Playwright, Ollama e GitHub Copilot.">
 
 <br>
 

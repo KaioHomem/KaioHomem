@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=block">
+<style>
+  :root { --ink-950: #070708; --ink-900: #0a0a0b; --ink-800: #121214; --ink-700: #1a1a1d;
+    --paper: #eceef0; --paper-dim: #b9bcc2; --muted: #8d9097; --muted-2: #5f6269; --signal: #ff5a1f;
+    --line: rgb(236 238 240 / 0.1); --line-strong: rgb(236 238 240 / 0.22); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; background: transparent; }
+  body { font-family: "Archivo", sans-serif; color: var(--paper); -webkit-font-smoothing: antialiased; }
+  .panel { background: var(--ink-900); border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; }
+  .mono { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .bar { height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+    border-bottom: 1px solid var(--line); background: var(--ink-950); color: var(--muted); }
+  .bar .l { display: flex; gap: 10px; align-items: center; color: var(--paper-dim); }
+  .bar .l b { color: var(--signal); font-weight: 500; }
+  .search { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); border-radius: 4px; padding: 4px 10px; color: var(--muted-2); min-width: 220px; }
+  .search i { width: 9px; height: 9px; border: 1.5px solid var(--muted); border-radius: 50%; position: relative; }
+  .cols { display: grid; grid-template-columns: repeat(5, 1fr); }
+  .col { padding: 18px 18px 22px; border-right: 1px solid var(--line); }
+  .col:last-child { border-right: 0; }
+  .g { display: flex; align-items: center; gap: 8px; color: var(--paper); font-weight: 700; font-size: 15px; font-variation-settings: "wdth" 115; margin-bottom: 12px; }
+  .g::before { content: ""; width: 0; height: 0; border-top: 5px solid var(--signal); border-left: 4px solid transparent; border-right: 4px solid transparent; }
+  .g small { margin-left: auto; color: var(--muted-2); font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 400; }
+  .it { display: flex; align-items: center; gap: 11px; height: 34px; padding: 0 8px; margin: 0 -8px; border-radius: 4px; color: var(--paper-dim); font-size: 15px; }
+  .it:nth-child(odd) { background: rgb(236 238 240 / .025); }
+  .ic { width: 20px; height: 20px; flex: none; background: var(--paper); -webkit-mask: var(--u) center / contain no-repeat; mask: var(--u) center / contain no-repeat; }
+  .tx { width: 20px; height: 20px; flex: none; display: grid; place-items: center; border: 1.5px solid var(--paper); border-radius: 4px;
+    font-family: "JetBrains Mono", monospace; font-size: 9px; font-weight: 700; color: var(--paper); }
+  .foot { height: 34px; display: flex; align-items: center; gap: 18px; padding: 0 20px; border-top: 1px solid var(--line); background: var(--ink-950); color: var(--muted-2); }
+  .foot span b { color: var(--signal); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="panel">
+  <div class="bar mono">
+    <div class="l"><b>COMP 03</b>Painel de efeitos</div>
+    <div class="search"><i></i>Ferramentas que eu uso</div>
+  </div>
+  <div class="cols" id="cols"></div>
+  <div class="foot mono"><span><b>◆</b> do script ao render</span><span>·</span><span>código, interface, 3D e automação no mesmo pipeline</span></div>
+</div>
+<script>
+  const SI = (s) => `https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/${s}.svg`;
+  const DI = (s) => `https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/${s}.svg`;
+  const groups = [
+    ["Linguagens", [["Java", DI("java/java-plain")], ["Python", SI("python")], ["JavaScript", SI("javascript")], ["TypeScript", SI("typescript")], ["HTML", SI("html5")], ["CSS", SI("css3")], ["SQL · MySQL", SI("mysql")]]],
+    ["Web & apps", [["React", SI("react")], ["Next.js", SI("nextdotjs")], ["Node.js", SI("nodedotjs")], ["Tailwind", SI("tailwindcss")], ["Bootstrap", SI("bootstrap")], ["GSAP", SI("greensock")], ["Vercel", SI("vercel")]]],
+    ["Motion & 3D", [["Blender", SI("blender")], ["Three.js", SI("threedotjs")], ["HyperFrames", "HF"], ["ffmpeg", SI("ffmpeg")], ["Figma", SI("figma")]]],
+    ["Ferramentas", [["Git", SI("git")], ["GitHub", SI("github")], ["VS Code", DI("vscode/vscode-plain")], ["IntelliJ IDEA", SI("intellijidea")], ["Docker", SI("docker")]]],
+    ["IA & automação", [["Claude Code", SI("claude")], ["GitHub Actions", SI("githubactions")], ["Playwright", DI("playwright/playwright-plain")], ["Ollama · LLM local", SI("ollama")], ["GitHub Copilot", SI("githubcopilot")]]],
+  ];
+  const cols = document.getElementById("cols");
+  for (const [name, items] of groups) {
+    const c = document.createElement("div"); c.className = "col";
+    c.innerHTML = `<div class="g">${name}<small>${String(items.length).padStart(2, "0")}</small></div>` +
+      items.map(([n, u]) => `<div class="it">${u.startsWith("http") ? `<span class="ic" style="--u:url('${u}')"></span>` : `<span class="tx">${u}</span>`}${n}</div>`).join("");
+    cols.appendChild(c);
+  }
+  const urls = groups.flatMap(([, i]) => i.map(([, u]) => u)).filter((u) => u.startsWith("http"));
+  window.ready = Promise.all([document.fonts.ready, ...urls.map((u) => new Promise((r) => { const im = new Image(); im.onload = im.onerror = r; im.src = u; }))])
+    .then(() => new Promise((r) => setTimeout(r, 300)));
+</script>
+</body>
+</html>
