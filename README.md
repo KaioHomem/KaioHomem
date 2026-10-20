@@ -1,83 +1,58 @@
-<div align="center">
+<a href="https://kaiohomem.github.io">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="assets/banner-still.png">
+    <img src="assets/banner.webp" width="100%" alt="Kaio Felipe. Dev, motion e CGI. Código de dia, Blender de noite. Monograma KF em cromo renderizado no Blender, sobre uma timeline de edição com keyframes e playhead laranja.">
+  </picture>
+</a>
 
-<img src="assets/kaio-orbit.svg" width="100%" alt="Kaio Homem — Código, curiosidade e criação. Banner orbital animado em roxo, rosa e verde."/>
+<sub><code>COMP 01</code> &nbsp;·&nbsp; <code>00:00:00:00</code> &nbsp;◆</sub>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=B8FA55&center=true&vCenter=true&width=760&lines=%3E+ideia+na+cabe%C3%A7a%2C+c%C3%B3digo+na+tela_;%3E+Python%2C+Java+e+um+pouco+de+caf%C3%A9_;%3E+pr%C3%B3ximo+commit%3A+uma+ideia+nova_" width="100%" alt="Ideia na cabeça, código na tela. Python, Java e um pouco de café. Próximo commit: uma ideia nova."/>
+## Sobre
 
-<br/><br/>
+Eu sou o Kaio, tenho 19 anos e curso **Ciências da Computação no IFSC**, em Lages, SC. Construo sites, ferramentas e vídeos que funcionam de verdade, e capricho em cada frame: código de dia, Blender de noite.
 
-<img src="https://komarev.com/ghpvc/?username=KaioHomem&style=for-the-badge&color=A779E9&label=VISITAS%20%2F%20VIEWS" alt="Visitas ao perfil"/>
-<img src="https://img.shields.io/github/followers/KaioHomem?style=for-the-badge&logo=github&color=A779E9&labelColor=170C2E" alt="Seguidores"/>
-<img src="https://img.shields.io/github/stars/KaioHomem?style=for-the-badge&logo=github&color=A779E9&labelColor=170C2E" alt="Estrelas"/>
+Falo **inglês em nível C1** e estou aprendendo alemão. Procuro **estágio ou primeiro emprego** em desenvolvimento, motion ou as duas coisas juntas.
 
-</div>
+<sub><i>EN · Computer Science student at IFSC (Brazil). I build websites, tools and videos, with Blender for the 3D. English C1, open to internships and a first job.</i></sub>
 
----
+<br>
 
-## Um pouco de mim
+<sub><code>COMP 02</code> &nbsp;·&nbsp; <code>00:00:01:16</code> &nbsp;◆</sub>
 
-- 💻 Sou **Kaio Felipe Homem**, estudante de **Ciência da Computação no IFSC — Lages, SC**.
-- 🚀 Busco oportunidades de estágio em **desenvolvimento de software, web ou suporte de TI**.
-- 🐍 Entre meus projetos estão aplicações em **Python**, **Java** e **JavaScript**.
-- 🌐 Crio também interfaces web com **HTML e CSS**.
-- 🔗 Confira meu [portfólio](https://kaiohomem.github.io) e os projetos abaixo.
+## Trabalho selecionado
 
-<details>
-<summary><b>🇺🇸 English</b></summary>
-<br/>
+| | Projeto | O que é | Stack |
+| :-- | :-- | :-- | :-- |
+| `01` | **[Ferramentas BR](https://kaiohomem.github.io/ferramentas/)** | Onze calculadoras trabalhistas (salário líquido, rescisão, férias, 13º, CLT vs PJ) com as tabelas fiscais de 2026. Motor de cálculo puro, testado no CI a cada mudança. | JavaScript · GitHub Actions |
+| `02` | **[Folha Simples](https://kaiohomem.github.io/produtos/folha-de-pagamento.html)** | Gerador de holerite e folha de pagamento que roda offline, vendido como produto. Usa o mesmo motor das calculadoras. | JavaScript · Offline |
+| `03` | **[Guia da Serra](https://kaiohomem.github.io/guia-da-serra/)** | Guia turístico de Lages e da Serra Catarinense, responsivo e acessível, em HTML, CSS e JavaScript puro. | HTML · CSS · A11y |
+| `04` | **[ChatDeConversa](https://github.com/KaioHomem/ChatDeConversa)** | Chat multi-protocolo em Python, com módulos de chat, FTP e IoT e um ponto de entrada central. | Python · Sockets |
 
-- 💻 I'm **Kaio Felipe Homem**, a **Computer Science student at IFSC — Lages, Brazil**.
-- 🚀 Open to internships in **software development, web or IT support**.
-- 🐍 My projects include applications built with **Python**, **Java** and **JavaScript**.
-- 🌐 I also create web interfaces with **HTML and CSS**.
-- 🔗 Explore my [portfolio](https://kaiohomem.github.io) and the projects below.
+**Motion & CGI.** Também faço vídeos no estilo After Effects: planos 3D renderizados no Blender por script, montagem em HyperFrames e sound design em Python. O monograma lá de cima saiu desse pipeline.
 
-</details>
+<br>
 
----
+<sub><code>COMP 03</code> &nbsp;·&nbsp; <code>00:00:03:08</code> &nbsp;◆</sub>
 
-## Minha caixa de ferramentas
+## Painel de efeitos
 
-### No código
+**Linguagens** &nbsp; `Java` `Python` `JavaScript` `TypeScript` `HTML` `CSS` `SQL`<br>
+**Web** &nbsp; `React` `Next.js` `Node.js` `GSAP` `Tailwind`<br>
+**Motion & 3D** &nbsp; `Blender` `HyperFrames` `ffmpeg` `Three.js`<br>
+**Ferramentas** &nbsp; `Git` `GitHub Actions` `Playwright` `MySQL`
 
-<img src="https://skillicons.dev/icons?i=py,java,js,html,css,mysql&theme=dark" alt="Python, Java, JavaScript, HTML, CSS e MySQL"/>
+<br>
 
-### No fluxo
+<sub><code>COMP 04</code> &nbsp;·&nbsp; <code>00:00:05:00</code> &nbsp;◆</sub>
 
-<img src="https://skillicons.dev/icons?i=git,github&theme=dark" alt="Git e GitHub"/>
+## Bora construir algo?
 
-### No radar
+O portfólio completo, com os trabalhos, a trajetória e o contato, está no ar:
 
-<img src="https://skillicons.dev/icons?i=cs,dotnet&theme=dark" alt="C# e .NET"/>
+<a href="https://kaiohomem.github.io"><img src="assets/cta-portfolio.png" width="290" alt="Dar play no portfólio: kaiohomem.github.io"></a>
 
----
+[LinkedIn](https://www.linkedin.com/in/kaio-homem-bb118335b/) &nbsp;·&nbsp; [kaiokateto@gmail.com](mailto:kaiokateto@gmail.com) &nbsp;·&nbsp; [Código do portfólio](https://github.com/KaioHomem/KaioHomem.github.io)
 
-## Ideias que viraram projeto
+<br>
 
-| Projeto | Descrição | Tecnologias |
-| --- | --- | --- |
-| [ChatDeConversa](https://github.com/KaioHomem/ChatDeConversa) | Aplicativo de chat com múltiplos protocolos. | Python |
-| [Guia da Serra](https://github.com/KaioHomem/guia-da-serra) | Guia turístico acessível e responsivo de Lages e da Serra Catarinense. | HTML, CSS, JavaScript |
-| [CrudHibernate](https://github.com/KaioHomem/CrudHibernate) | Repositório de projeto em Java. | Java |
-| [Portfólio](https://kaiohomem.github.io) | Meu espaço na web. | JavaScript |
-
----
-
-## Bora trocar uma ideia?
-
-<div align="center">
-
-<a href="https://www.linkedin.com/in/kaio-homem-bb118335b/"><img src="https://skillicons.dev/icons?i=linkedin&theme=dark" width="56" alt="LinkedIn"/></a>
-&nbsp;&nbsp;
-<a href="https://www.instagram.com/kaiohomem"><img src="https://skillicons.dev/icons?i=instagram&theme=dark" width="56" alt="Instagram"/></a>
-&nbsp;&nbsp;
-<a href="https://github.com/KaioHomem"><img src="https://skillicons.dev/icons?i=github&theme=dark" width="56" alt="GitHub"/></a>
-
-</div>
-
-<br/>
-
-<img src="https://capsule-render.vercel.app/api?type=shark&color=0:170C2E,60:A779E9,100:FF70B8&height=90&section=footer" width="100%" alt="Rodapé geométrico em roxo e rosa"/>
-
-<p align="center"><sub>Feito de curiosidade. Construído em commits.</sub></p>
-
+<sub><code>END</code> &nbsp;·&nbsp; <code>00:00:06:12</code> &nbsp;·&nbsp; render concluído</sub>

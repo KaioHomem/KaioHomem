@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=block">
+<style>
+  :root {
+    --ink-950: #070708; --ink-900: #0a0a0b; --ink-800: #121214; --ink-700: #1a1a1d;
+    --paper: #eceef0; --paper-dim: #b9bcc2; --muted: #8d9097; --muted-2: #5f6269;
+    --signal: #ff5a1f; --line: rgb(236 238 240 / 0.1); --line-strong: rgb(236 238 240 / 0.22);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 440px; overflow: hidden; background: var(--ink-900); }
+  body { font-family: "Archivo", sans-serif; color: var(--paper); -webkit-font-smoothing: antialiased; position: relative; }
+  .mono { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* viewer grid + safe-frame corners */
+  .grid { position: absolute; inset: 0;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 80px 80px; background-position: -1px 39px; opacity: .35; }
+  .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 76% 45%, rgb(255 90 31 / 0.07), transparent 70%), radial-gradient(ellipse at center, transparent 55%, rgb(0 0 0 / .55)); }
+  .corner { position: absolute; width: 18px; height: 18px; border-color: var(--line-strong); border-style: solid; border-width: 0; }
+  .c1 { left: 24px; top: 52px; border-left-width: 1px; border-top-width: 1px; }
+  .c2 { right: 24px; top: 52px; border-right-width: 1px; border-top-width: 1px; }
+  .c3 { left: 24px; bottom: 112px; border-left-width: 1px; border-bottom-width: 1px; }
+  .c4 { right: 24px; bottom: 112px; border-right-width: 1px; border-bottom-width: 1px; }
+
+  /* top bar */
+  .top { position: absolute; left: 0; right: 0; top: 0; height: 40px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; border-bottom: 1px solid var(--line); background: rgb(7 7 8 / .6); color: var(--muted); }
+  .top .l { display: flex; gap: 10px; align-items: center; color: var(--paper-dim); }
+  .rec { width: 8px; height: 8px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 10px var(--signal); }
+  .tc { color: var(--signal); font-weight: 700; font-size: 13px; letter-spacing: .08em; }
+
+  /* copy */
+  .copy { position: absolute; left: 56px; top: 74px; }
+  .label { color: var(--muted); display: flex; gap: 10px; align-items: center; }
+  .label b { color: var(--signal); font-weight: 500; }
+  h1 { font-weight: 800; font-variation-settings: "wdth" 125; font-size: 100px; line-height: .86; letter-spacing: -0.035em; margin-top: 18px; text-transform: uppercase; }
+  h1 .dot { color: var(--signal); }
+  .lead { margin-top: 18px; font-size: 26px; font-weight: 500; font-variation-settings: "wdth" 110; color: var(--paper); letter-spacing: -0.01em; }
+  .lead span { color: var(--paper-dim); font-weight: 400; }
+  .avail { display: inline-flex; gap: 9px; align-items: center; color: var(--paper-dim); }
+  .avail i { width: 7px; height: 7px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 8px var(--signal); }
+  .status { margin-top: 16px; display: inline-flex; gap: 10px; align-items: center; color: var(--paper-dim);
+    border: 1px solid var(--line-strong); padding: 7px 12px 7px 10px; border-radius: 999px; background: rgb(18 18 20 / .7); }
+  .status i { width: 7px; height: 7px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 8px var(--signal); }
+
+  /* monogram */
+  #mono { position: absolute; width: 440px; height: 440px; right: 52px; top: -14px; }
+  .layer-name { position: absolute; right: 56px; top: 296px; color: var(--muted-2); text-align: right; }
+
+  /* timeline */
+  .tl { position: absolute; left: 0; right: 0; bottom: 0; height: 96px; border-top: 1px solid var(--line); background: var(--ink-950); }
+  .track-label { position: absolute; left: 24px; width: 168px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+  .track-label .sw { width: 8px; height: 8px; border-radius: 2px; }
+  .ruler { position: absolute; left: 200px; right: 24px; top: 0; height: 26px; border-bottom: 1px solid var(--line); }
+  .tick { position: absolute; bottom: 0; width: 1px; background: var(--line-strong); }
+  .tick span { position: absolute; bottom: 9px; left: 4px; font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--muted-2); }
+  .lane { position: absolute; left: 200px; right: 24px; height: 22px; }
+  .bar { position: absolute; top: 5px; height: 12px; border-radius: 3px; }
+  .kf { position: absolute; top: 5px; width: 11px; height: 11px; margin-left: -5.5px; transform: rotate(45deg);
+    border: 1.5px solid var(--paper-dim); background: var(--ink-950); }
+  .kf.on { background: var(--signal); border-color: var(--signal); box-shadow: 0 0 10px rgb(255 90 31 / .7); }
+  .ph { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--signal); }
+  .ph::before { content: ""; position: absolute; top: 0; left: -6px; width: 13px; height: 14px; background: var(--signal);
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%); }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="vignette"></div>
+  <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+
+  <div class="top mono">
+    <div class="l"><span class="rec" id="rec"></span>KAIO_FELIPE.comp</div>
+    <div class="avail"><i></i>Disponível para estágio &amp; primeiro emprego</div>
+    <div class="tc" id="tc">00:00:00:00</div>
+  </div>
+
+  <div class="copy">
+    <div class="label mono"><b>COMP 01</b><span>Portfólio · 2026</span><span>·</span><span>Lages, SC</span></div>
+    <h1>Kaio<br>Felipe<span class="dot">.</span></h1>
+    <p class="lead">Dev, motion e CGI. <span>Código de dia, Blender de noite.</span></p>
+  </div>
+
+  <canvas id="mono" width="800" height="800"></canvas>
+
+  <div class="tl" id="tl">
+    <div class="ruler" id="ruler"></div>
+    <div class="track-label mono" style="top:36px"><span class="sw" style="background:var(--signal)"></span>KF_monogram</div>
+    <div class="track-label mono" style="top:64px"><span class="sw" style="background:var(--muted-2)"></span>Copy · Archivo</div>
+    <div class="lane" style="top:32px" id="lane1"></div>
+    <div class="lane" style="top:60px" id="lane2"></div>
+    <div class="ph" id="ph" style="left:200px"></div>
+  </div>
+
+<script>
+  const FPS = 24, DUR = 6.5, FRAMES = 90, LOCK = 40;
+  const T_IN = 1.6, T_HOLD = 5.4, T_OUT = 6.2;   // seconds
+  const keys1 = [0, T_IN, T_HOLD, T_OUT];
+  const keys2 = [0.1, 0.9];
+  const imgs = [];
+  const loadAll = Promise.all(Array.from({ length: FRAMES }, (_, i) => new Promise((res) => {
+    const im = new Image(); im.onload = im.onerror = res;
+    im.src = `cgi/kf_${String(i + 1).padStart(3, "0")}.webp`; imgs[i] = im;
+  })));
+
+  const ruler = document.getElementById("ruler");
+  const W = 1280 - 200 - 24;
+  const xOf = (t) => (t / DUR) * W;
+  for (let s = 0; s <= DUR; s += 0.25) {
+    const d = document.createElement("div"); d.className = "tick";
+    const major = Math.abs(s - Math.round(s)) < 1e-6;
+    d.style.left = xOf(s) + "px"; d.style.height = major ? "12px" : "5px";
+    if (major) d.innerHTML = `<span>${String(Math.round(s)).padStart(2, "0")}s</span>`;
+    ruler.appendChild(d);
+  }
+  const lane1 = document.getElementById("lane1"), lane2 = document.getElementById("lane2");
+  const bar = (lane, a, b, color) => { const d = document.createElement("div"); d.className = "bar";
+    d.style.left = xOf(a) + "px"; d.style.width = (xOf(b) - xOf(a)) + "px"; d.style.background = color; lane.appendChild(d); };
+  bar(lane1, 0, T_OUT, "rgb(255 90 31 / .16)");
+  bar(lane2, 0, DUR, "rgb(236 238 240 / .06)");
+  const kfEls = [];
+  const kf = (lane, t) => { const d = document.createElement("div"); d.className = "kf"; d.style.left = xOf(t) + "px"; lane.appendChild(d); kfEls.push([d, t]); };
+  keys1.forEach((t) => kf(lane1, t)); keys2.forEach((t) => kf(lane2, t));
+
+  const ctx = document.getElementById("mono").getContext("2d");
+  const easeOut = (x) => 1 - Math.pow(1 - x, 2.2);
+  const easeIn = (x) => x * x;
+
+  function monoFrame(t) {
+    if (t < T_IN) return { f: 1 + (LOCK - 1) * easeOut(t / T_IN), a: Math.min(1, t / 0.25) };
+    if (t < T_HOLD) { const p = (t - T_IN) / (T_HOLD - T_IN); return { f: LOCK + 7 * Math.sin(p * Math.PI) , a: 1 }; }
+    if (t < T_OUT) { const p = (t - T_HOLD) / (T_OUT - T_HOLD); return { f: LOCK + (FRAMES - LOCK) * easeIn(p), a: 1 - easeIn(p) }; }
+    return { f: FRAMES, a: 0 };
+  }
+
+  window.setTime = (t) => {
+    const { f, a } = monoFrame(t);
+    ctx.clearRect(0, 0, 800, 800);
+    ctx.globalAlpha = a;
+    const im = imgs[Math.round(Math.min(FRAMES, Math.max(1, f))) - 1];
+    if (im && im.naturalWidth) ctx.drawImage(im, 0, 0, 800, 800);
+    const fr = Math.round(t * FPS);
+    const ss = Math.floor(fr / FPS), ff = fr % FPS;
+    document.getElementById("tc").textContent = `00:00:${String(ss).padStart(2, "0")}:${String(ff).padStart(2, "0")}`;
+    document.getElementById("ph").style.left = (200 + xOf(t)) + "px";
+    kfEls.forEach(([d, kt]) => d.classList.toggle("on", t >= kt - 1e-6 && t - kt < 0.5));
+    document.getElementById("rec").style.opacity = (Math.floor(t * 2) % 2 === 0) ? 1 : 0.25;
+  };
+  window.ready = Promise.all([loadAll, document.fonts.ready]).then(() => { setTime(0); return true; });
+</script>
+</body>
+</html>
