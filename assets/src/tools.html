@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=block">
@@ -36,21 +36,21 @@
 <body>
 <div class="panel">
   <div class="bar mono">
-    <div class="l"><b>COMP 03</b>Painel de efeitos</div>
-    <div class="search"><i></i>Ferramentas que eu uso</div>
+    <div class="l"><b>COMP 03</b>Effects panel</div>
+    <div class="search"><i></i>Tools I use</div>
   </div>
   <div class="cols" id="cols"></div>
-  <div class="foot mono"><span><b>◆</b> do script ao render</span><span>·</span><span>código, interface, 3D e automação no mesmo pipeline</span></div>
+  <div class="foot mono"><span><b>◆</b> from script to render</span><span>·</span><span>code, interface, 3D and automation in one pipeline</span></div>
 </div>
 <script>
   const SI = (s) => `https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/${s}.svg`;
   const DI = (s) => `https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/${s}.svg`;
   const groups = [
-    ["Linguagens", [["Java", DI("java/java-plain")], ["Python", SI("python")], ["JavaScript", SI("javascript")], ["TypeScript", SI("typescript")], ["HTML", SI("html5")], ["CSS", SI("css3")], ["SQL · MySQL", SI("mysql")]]],
+    ["Languages", [["Java", DI("java/java-plain")], ["Python", SI("python")], ["JavaScript", SI("javascript")], ["TypeScript", SI("typescript")], ["HTML", SI("html5")], ["CSS", SI("css3")], ["SQL · MySQL", SI("mysql")]]],
     ["Web & apps", [["React", SI("react")], ["Next.js", SI("nextdotjs")], ["Node.js", SI("nodedotjs")], ["Tailwind", SI("tailwindcss")], ["Bootstrap", SI("bootstrap")], ["GSAP", SI("greensock")], ["Vercel", SI("vercel")]]],
     ["Motion & 3D", [["Blender", SI("blender")], ["Three.js", SI("threedotjs")], ["HyperFrames", "HF"], ["ffmpeg", SI("ffmpeg")], ["Figma", SI("figma")]]],
-    ["Ferramentas", [["Git", SI("git")], ["GitHub", SI("github")], ["VS Code", DI("vscode/vscode-plain")], ["IntelliJ IDEA", SI("intellijidea")], ["Docker", SI("docker")]]],
-    ["IA & automação", [["Claude Code", SI("claude")], ["GitHub Actions", SI("githubactions")], ["Playwright", DI("playwright/playwright-plain")], ["Ollama · LLM local", SI("ollama")], ["GitHub Copilot", SI("githubcopilot")]]],
+    ["Tools", [["Git", SI("git")], ["GitHub", SI("github")], ["VS Code", DI("vscode/vscode-plain")], ["IntelliJ IDEA", SI("intellijidea")], ["Docker", SI("docker")]]],
+    ["AI & automation", [["Claude Code", SI("claude")], ["GitHub Actions", SI("githubactions")], ["Playwright", DI("playwright/playwright-plain")], ["Ollama · local LLM", SI("ollama")], ["GitHub Copilot", SI("githubcopilot")]]],
   ];
   const cols = document.getElementById("cols");
   for (const [name, items] of groups) {

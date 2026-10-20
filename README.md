@@ -1,57 +1,57 @@
 <a href="https://kaiohomem.github.io">
   <picture>
     <source media="(prefers-reduced-motion: reduce)" srcset="assets/banner-still.png">
-    <img src="assets/banner.webp" width="100%" alt="Kaio Felipe. Dev, motion e CGI. Código de dia, Blender de noite. Sites, apps web e mobile, ferramentas, produtos digitais e vídeo 3D. Monograma KF em cromo renderizado no Blender, sobre uma timeline de edição com keyframes e playhead laranja.">
+    <img src="assets/banner.webp" width="100%" alt="Kaio Felipe. Dev, motion and CGI. Code by day, Blender by night. Websites, web and mobile apps, tools, digital products and 3D video. A chrome KF monogram rendered in Blender, over an editing timeline with keyframes and an orange playhead.">
   </picture>
 </a>
 
 <sub><code>COMP 01</code> &nbsp;·&nbsp; <code>00:00:00:00</code> &nbsp;◆</sub>
 
-## Sobre
+## About me
 
-Eu sou o Kaio, tenho 19 anos e curso **Ciências da Computação no IFSC**, no Brasil. Construo coisas que funcionam de verdade, do código ao último frame: código de dia, Blender de noite.
+I'm Kaio, a 19-year-old **Computer Science student at IFSC** (Federal Institute of Santa Catarina) in Brazil. I build things that actually work, from the first line of code to the final frame: code by day, Blender by night.
 
-Na prática, isso vira **sites e landing pages**, **apps web e mobile**, **ferramentas e automações**, **produtos digitais** e **vídeos com motion e 3D**. Gosto de pegar uma ideia e levar até o ar, com interface caprichada, testes e deploy.
+In practice, that means **websites and landing pages**, **web and mobile apps**, **tools and automations**, **digital products**, and **motion and 3D videos**. I like taking an idea all the way to production, with a polished interface, tests and a real deployment.
 
-Falo **inglês em nível C1** e estou aprendendo alemão. Procuro **estágio ou primeiro emprego** em desenvolvimento, motion ou as duas coisas juntas.
+I speak **English at C1 level** and I'm learning German. I'm looking for an **internship or my first job** in software development, motion design, or both.
 
-<sub><i>EN · Computer Science student at IFSC, Brazil. I build websites, web and mobile apps, tools, digital products and 3D motion videos, from the first line of code to the final render. English C1, open to internships and a first job.</i></sub>
+<sub><i>PT · Estudante de Ciência da Computação no IFSC. Faço sites, apps web e mobile, ferramentas, produtos digitais e vídeos com motion e 3D. Aberto a estágio e primeiro emprego.</i></sub>
 
 <br>
 
 <sub><code>COMP 02</code> &nbsp;·&nbsp; <code>00:00:01:16</code> &nbsp;◆</sub>
 
-## Trabalho selecionado
+## Selected work
 
-| | Projeto | O que é | Stack |
+| | Project | What it is | Stack |
 | :-- | :-- | :-- | :-- |
-| `01` | **[Ferramentas BR](https://kaiohomem.github.io/ferramentas/)** | Onze calculadoras trabalhistas (salário líquido, rescisão, férias, 13º, CLT vs PJ) com as tabelas fiscais de 2026. Motor de cálculo puro, testado no CI a cada mudança. | JavaScript · GitHub Actions |
-| `02` | **[Folha Simples](https://kaiohomem.github.io/produtos/folha-de-pagamento.html)** | Gerador de holerite e folha de pagamento que roda offline, vendido como produto. Usa o mesmo motor das calculadoras. | JavaScript · Offline |
-| `03` | **[Guia da Serra](https://kaiohomem.github.io/guia-da-serra/)** | Guia turístico de Lages e da Serra Catarinense, responsivo e acessível, em HTML, CSS e JavaScript puro. | HTML · CSS · A11y |
-| `04` | **[ChatDeConversa](https://github.com/KaioHomem/ChatDeConversa)** | Chat multi-protocolo em Python, com módulos de chat, FTP e IoT e um ponto de entrada central. | Python · Sockets |
+| `01` | **[Ferramentas BR](https://kaiohomem.github.io/ferramentas/)** | Eleven Brazilian payroll calculators (net salary, severance, vacation pay, 13th salary, employee vs. contractor) on the 2026 tax tables. A pure calculation engine, tested in CI on every change. | JavaScript · GitHub Actions |
+| `02` | **[Folha Simples](https://kaiohomem.github.io/produtos/folha-de-pagamento.html)** | An offline payslip and payroll generator, sold as a digital product. It ships the same engine as the calculators. | JavaScript · Offline |
+| `03` | **[Guia da Serra](https://kaiohomem.github.io/guia-da-serra/)** | A responsive, accessible travel guide to Lages and the Santa Catarina highlands, in plain HTML, CSS and JavaScript. | HTML · CSS · A11y |
+| `04` | **[ChatDeConversa](https://github.com/KaioHomem/ChatDeConversa)** | A group chat over UDP multicast with a WhatsApp-style Tkinter interface, plus file transfer and IoT modules. | Python · Sockets |
 
-**Motion & CGI.** Também faço vídeos no estilo After Effects: planos 3D renderizados no Blender por script, montagem em HyperFrames e sound design em Python. O monograma lá de cima saiu desse pipeline.
+**Motion & CGI.** I also make After Effects–style videos: 3D shots rendered in Blender by script, edited in HyperFrames, with sound design in Python. The monogram at the top of this page came out of that pipeline.
 
 <br>
 
 <sub><code>COMP 03</code> &nbsp;·&nbsp; <code>00:00:03:08</code> &nbsp;◆</sub>
 
-## Painel de efeitos
+## Effects panel
 
-<img src="assets/tools.png" width="100%" alt="Ferramentas que eu uso. Linguagens: Java, Python, JavaScript, TypeScript, HTML, CSS, SQL e MySQL. Web e apps: React, Next.js, Node.js, Tailwind, Bootstrap, GSAP e Vercel. Motion e 3D: Blender, Three.js, HyperFrames, ffmpeg e Figma. Ferramentas: Git, GitHub, VS Code, IntelliJ IDEA e Docker. IA e automação: Claude Code, GitHub Actions, Playwright, Ollama e GitHub Copilot.">
+<img src="assets/tools.png" width="100%" alt="Tools I use. Languages: Java, Python, JavaScript, TypeScript, HTML, CSS, SQL and MySQL. Web and apps: React, Next.js, Node.js, Tailwind, Bootstrap, GSAP and Vercel. Motion and 3D: Blender, Three.js, HyperFrames, ffmpeg and Figma. Tools: Git, GitHub, VS Code, IntelliJ IDEA and Docker. AI and automation: Claude Code, GitHub Actions, Playwright, Ollama and GitHub Copilot.">
 
 <br>
 
 <sub><code>COMP 04</code> &nbsp;·&nbsp; <code>00:00:05:00</code> &nbsp;◆</sub>
 
-## Bora construir algo?
+## Let's build something
 
-O portfólio completo, com os trabalhos, a trajetória e o contato, está no ar:
+My full portfolio, with projects, background and contact, is live:
 
-<a href="https://kaiohomem.github.io"><img src="assets/cta-portfolio.png" width="290" alt="Dar play no portfólio: kaiohomem.github.io"></a>
+<a href="https://kaiohomem.github.io"><img src="assets/cta-portfolio.png" width="290" alt="Press play on my portfolio: kaiohomem.github.io"></a>
 
-[LinkedIn](https://www.linkedin.com/in/kaio-homem/) &nbsp;·&nbsp; [kaiokateto@gmail.com](mailto:kaiokateto@gmail.com) &nbsp;·&nbsp; [Código do portfólio](https://github.com/KaioHomem/KaioHomem.github.io)
+[LinkedIn](https://www.linkedin.com/in/kaio-homem/) &nbsp;·&nbsp; [kaiokateto@gmail.com](mailto:kaiokateto@gmail.com) &nbsp;·&nbsp; [Portfolio source](https://github.com/KaioHomem/KaioHomem.github.io)
 
 <br>
 
-<sub><code>END</code> &nbsp;·&nbsp; <code>00:00:06:12</code> &nbsp;·&nbsp; render concluído</sub>
+<sub><code>END</code> &nbsp;·&nbsp; <code>00:00:06:12</code> &nbsp;·&nbsp; render complete</sub>
